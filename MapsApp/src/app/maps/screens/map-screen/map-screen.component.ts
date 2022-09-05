@@ -8,7 +8,13 @@ import { PlacesService } from '../../services';
 })
 export class MapScreenComponent implements OnInit {
 
-  constructor( private placesServices: PlacesService) { }
+  
+  constructor( private placesService: PlacesService) { }
+
+  get isUserLocationReady(){
+    return this.placesService.isUseLocationReady;
+  }
+
   ngOnInit(): void {
   }
 
