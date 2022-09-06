@@ -1,4 +1,3 @@
-import { ConvertActionBindingResult } from '@angular/compiler/src/compiler_util/expression_converter';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -6,6 +5,8 @@ import { Injectable } from '@angular/core';
 })
 export class PlacesService {
   public useLocation?: [number, number] 
+
+  
   
   get isUseLocationReady():boolean {
     return !!this.useLocation;
@@ -16,7 +17,6 @@ export class PlacesService {
   }
 
   public async getUseLocation(): Promise<[number, number]>{
-
     return new Promise( (resolve, reject) => {
       navigator.geolocation.getCurrentPosition(
         ({coords}) =>{

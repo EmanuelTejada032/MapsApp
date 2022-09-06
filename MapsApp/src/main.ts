@@ -4,6 +4,10 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
+import Mapboxgl from 'mapbox-gl'; // or "const mapboxgl = require('mapbox-gl');"
+ 
+Mapboxgl.accessToken = 'pk.eyJ1IjoiaGVybWFuZGFkMDMyIiwiYSI6ImNreGhpMmcydDBhdmcycHF3MHJ0MnJtZHAifQ.dxim_rQxF48qe2pYPVovyA';
+
 if(!navigator.geolocation){
   alert("Browser doesnt support geolocation");
   throw new Error("Browser doesnt support geolocation");
