@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import {Map} from 'mapbox-gl';
+import {Map, Popup, Marker} from 'mapbox-gl';
 import { PlacesService } from '../../services';
 
 @Component({
@@ -20,7 +20,16 @@ export class MapViewComponent implements AfterViewInit {
       center: this.placesService.useLocation, // starting position [lng, lat]
       zoom: 18, // starting zoom
       // projection: 'globe' // display the map as a 3D globe
-      });
+    });
+    const popup = new Popup({ closeOnClick: false })
+      .setLngLat(this.placesService.useLocation)
+      .setHTML('<h1>My Job</h1>')
+      .addTo(map);
+
+    const marker = new Marker({draggable: true})
+      .setLngLat(this.placesService.useLocation)
+      .setPopup(popup)
+      .addTo(map)
   }
  
 
